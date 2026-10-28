@@ -1122,16 +1122,12 @@ function preencherConvite(data){
 ===================================================== */
 
 function configurarWhatsApp(data){
-    const telefone = data.whatsapp || data.telefone || "";
-    const mensagem = encodeURIComponent("Olá! Confirmo minha presença no aniversário do Dudu.");
+    // Endereço correto da página de confirmação de presença.
+    // Usar URL absoluta evita que o navegador acrescente o domínio atual.
     const botao = document.getElementById("botaoWhatsApp");
-
-    if(telefone){
-        const numero = telefone.replace(/\D/g, "");
-        botao.href = "https://wa.me/" + numero + "?text=" + mensagem;
-    } else {
-        botao.href = "dudu-convite.skylineweb.com.br";
-    }
+    botao.href = "https://dudu-convite.skylineweb.com.br/";
+    botao.target = "_blank";
+    botao.rel = "noopener noreferrer";
 }
 
 
