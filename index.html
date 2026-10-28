@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- CARD DE COMPARTILHAMENTO - WHATSAPP E REDES SOCIAIS -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Convite do Dudu - Safari">
+<meta property="og:description" content="Você recebeu um convite para o Safari do Dudu! 🦁🌿">
+<meta property="og:image" content="https://i.postimg.cc/4dWHNM0Q/dudu-1-ano.jpg">
+<meta property="og:image:url" content="https://i.postimg.cc/4dWHNM0Q/dudu-1-ano.jpg">
+<meta property="og:image:secure_url" content="https://i.postimg.cc/4dWHNM0Q/dudu-1-ano.jpg">
+<meta property="og:image:alt" content="Dudu - 1 Ano">
+<meta property="og:url" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convite do Dudu - Safari">
+<meta name="twitter:description" content="Você recebeu um convite para o Safari do Dudu! 🦁🌿">
+<meta name="twitter:image" content="https://i.postimg.cc/4dWHNM0Q/dudu-1-ano.jpg">
+<meta name="twitter:image:alt" content="Dudu - 1 Ano">
+<title>Convite do Dudu - Safari</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: Georgia, "Times New Roman", serif;
+    background:#f7f3e9;
+    color:#31552b;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+/* =====================================================
+   ANIMAÇÕES CSS AVANÇADAS (SAFARI)
+===================================================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulsar {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes balancoLento {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+@keyframes folhaCaindo {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.9; }
+    100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes passarJipe {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+}
+
+/* Chuva de Folhas em Ambas as Telas */
+.folhas-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 8000;
+    overflow: hidden;
+}
+
+.folha-animada {
+    position: absolute;
+    font-size: 26px;
+    top: -50px;
+    user-select: none;
+    animation: folhaCaindo 7s linear infinite;
+}
+
+.folha-animada:nth-child(1) { left: 8%; animation-duration: 6s; animation-delay: 0s; }
+.folha-animada:nth-child(2) { left: 25%; animation-duration: 8s; animation-delay: 2s; }
+.folha-animada:nth-child(3) { left: 45%; animation-duration: 7s; animation-delay: 4s; }
+.folha-animada:nth-child(4) { left: 70%; animation-duration: 9s; animation-delay: 1s; }
+.folha-animada:nth-child(5) { left: 88%; animation-duration: 6.5s; animation-delay: 3s; }
+
+
+/* =====================================================
+   CARREGAMENTO
+===================================================== */
+
+#carregando{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:#f7f3e9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:15px;
+    color:#31552b;
+}
+
+.spinner{
+    width:45px;
+    height:45px;
+    border:4px solid #ddd;
+    border-top-color:#31552b;
+    border-radius:50%;
+    animation:girar 1s linear infinite;
+}
+
+@keyframes girar{
+    to{ transform:rotate(360deg); }
+}
+
+
+/* =====================================================
+   TELA INICIAL DE ABERTURA (1ª TELA)
+===================================================== */
+
+#telaAbertura{
+    position:fixed;
+    inset:0;
+    z-index:9000;
+    background: linear-gradient(180deg, #cde0b8 0%, #dfe9d4 100%);
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    overflow:hidden;
+}
+
+.selva-decoracao {
+    position: absolute;
+    font-size: 45px;
+    pointer-events: none;
+    animation: flutuar 4s infinite ease-in-out;
+}
+
+.decoracao-1 { top: 15px; left: 15px; }
+.decoracao-2 { top: 15px; right: 15px; animation-delay: 1s; }
+.decoracao-3 { bottom: 20px; left: 20px; animation-delay: 2s; }
+.decoracao-4 { bottom: 20px; right: 20px; animation-delay: 1.5s; }
+
+.abertura-box{
+    max-width:420px;
+    width:100%;
+    background:#f7f3e9;
+    padding:35px 25px;
+    border-radius:28px;
+    border: 3px solid #8cae68;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    position: relative;
+    z-index: 9005;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.abertura-box h2{
+    font-size:16px;
+    color:#31552b;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.abertura-box h1{
+    font-size:42px;
+    color:#31552b;
+    line-height:1;
+}
+
+.foto-abertura{
+    width:180px;
+    height:180px;
+    margin:10px 0;
+    border-radius:50%;
+    overflow:hidden;
+    border:6px solid #8cae68;
+    box-shadow: 0 8px 25px rgba(0,0,0,.15);
+    background:#d6dfcc;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation: balancoLento 3.5s ease-in-out infinite;
+}
+
+.foto-abertura img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position: center top; 
+    display:none;
+}
+
+.abertura-box p{
+    font-size:15px;
+    color:#555;
+    margin-bottom:8px;
+}
+
+.botao-abrir{
+    background:#31552b;
+    color:white;
+    border:none;
+    padding:16px 32px;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:50px;
+    cursor:pointer;
+    box-shadow: 0 8px 20px rgba(49,85,43,0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    animation: pulsar 2s infinite ease-in-out;
+}
+
+.botao-abrir:hover{
+    background:#243f20;
+    transform: scale(1.08);
+}
+
+
+/* =====================================================
+   ERRO
+===================================================== */
+
+#erro{
+    display:none;
+    min-height:100vh;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    text-align:center;
+}
+
+.erro-box{
+    max-width:500px;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.10);
+}
+
+.erro-box h1{
+    margin-bottom:15px;
+    color:#9f2222;
+}
+
+.erro-box p{
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   CONVITE PRINCIPAL (2ª TELA)
+===================================================== */
+
+#convite{
+    display:none;
+    position: relative;
+}
+
+
+/* =====================================================
+   HERO / CABEÇALHO SAFARI
+===================================================== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    position:relative;
+    overflow:hidden;
+    background:
+    radial-gradient(
+        circle at 20% 20%,
+        rgba(255,255,255,.9),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 80% 30%,
+        rgba(255,255,255,.8),
+        transparent 30%
+    ),
+    #dfe9d4;
+}
+
+.hero-conteudo{
+    width:100%;
+    max-width:800px;
+    animation: fadeIn 1s ease-out;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-pequeno{
+    font-size:18px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size: clamp(50px,10vw,100px);
+    line-height:.95;
+    color:#31552b;
+    margin-bottom:20px;
+}
+
+.hero h2{
+    font-size: clamp(22px,5vw,38px);
+    font-weight:normal;
+    margin-bottom:25px;
+}
+
+.hero-texto{
+    font-size:19px;
+    line-height:1.7;
+    max-width:650px;
+    margin:auto;
+}
+
+.bicho-flutuante {
+    position: absolute;
+    font-size: 50px;
+    pointer-events: none;
+    z-index: 5;
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+.bicho-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.bicho-2 { top: 15%; right: 5%; animation-delay: 1.5s; }
+.bicho-3 { bottom: 8%; left: 8%; animation-delay: 2.5s; }
+.bicho-4 { bottom: 10%; right: 8%; animation-delay: 1s; }
+
+
+/* =====================================================
+   FOTO PRINCIPAL
+===================================================== */
+
+.foto-principal{
+    width:min(80vw,380px);
+    height:min(80vw,380px);
+    margin:35px auto 0;
+    border-radius:50%;
+    overflow:hidden;
+    border:8px solid #8cae68;
+    box-shadow: 0 12px 40px rgba(0,0,0,.18);
+    background:#d6dfcc;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation: balancoLento 4s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.foto-principal:hover {
+    transform: scale(1.04) rotate(0deg);
+}
+
+.foto-principal img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position: center top; 
+    display:none;
+}
+
+.sem-foto{
+    color:#31552b;
+    font-size:18px;
+    padding:20px;
+}
+
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+
+.secao{
+    padding:75px 20px;
+    text-align:center;
+    position: relative;
+}
+
+.secao-comemorar {
+    padding: 50px 20px 30px 20px !important; 
+}
+
+.secao-conteudo{
+    max-width:900px;
+    margin:auto;
+    position: relative;
+    z-index: 10;
+}
+
+.secao h2{
+    font-size: clamp(30px,6vw,48px);
+    margin-bottom:25px;
+    color:#31552b;
+}
+
+.secao p{
+    font-size:18px;
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   DADOS DO EVENTO
+===================================================== */
+
+.evento{
+    background:white;
+}
+
+.evento-grid{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:20px;
+    margin-top:40px;
+}
+
+.evento-card{
+    padding:30px 20px;
+    background:#f7f3e9;
+    border-radius:18px;
+    border: 1px solid #dbe6ce;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.evento-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+.evento-icon{
+    font-size:42px;
+    margin-bottom:12px;
+    animation: balancoLento 2.5s infinite ease-in-out;
+}
+
+.evento-card h3{
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.evento-card p{
+    font-size:16px;
+}
+
+.botao-maps {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background-color: #31552b;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.botao-maps:hover {
+    background-color: #243f20;
+    transform: scale(1.08);
+}
+
+
+/* =====================================================
+   GALERIA DE FOTOS
+===================================================== */
+
+.galeria{
+    background:#edf3e8;
+}
+
+.galeria-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:20px;
+    margin-top:35px;
+}
+
+.galeria-item{
+    position: relative;
+    aspect-ratio: 1/1;
+    background:#d6dfcc;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    border: 3px solid #8cae68;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-item:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    z-index: 15;
+}
+
+.galeria-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.legenda-mes {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(49, 85, 43, 0.88);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 5px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    backdrop-filter: blur(2px);
+}
+
+.galeria-vazia{
+    grid-column: 1 / -1;
+    padding:35px;
+    color:#777;
+}
+
+
+/* =====================================================
+   LIGHTBOX / ZOOM DA FOTO COM NAVEGAÇÃO
+===================================================== */
+
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.lightbox-conteudo {
+    position: relative;
+    max-width: 90vw;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 12px;
+    border: 3px solid #8cae68;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    object-fit: contain;
+}
+
+.lightbox-legenda {
+    margin-top: 15px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: #31552b;
+    padding: 8px 24px;
+    border-radius: 20px;
+    border: 1px solid #8cae68;
+}
+
+.lightbox-fechar {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10001;
+    line-height: 1;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(49, 85, 43, 0.8);
+    color: white;
+    border: 2px solid #8cae68;
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 10001;
+}
+
+.lightbox-nav:hover {
+    background: #31552b;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev { left: 15px; }
+.lightbox-next { right: 15px; }
+
+
+/* =====================================================
+   CONFIRMAÇÃO
+===================================================== */
+
+.confirmacao{
+    background:#31552b;
+    color:white;
+    overflow: hidden;
+}
+
+.confirmacao h2{
+    color:white;
+}
+
+.confirmacao p{
+    max-width:650px;
+    margin:0 auto 30px;
+}
+
+.botao{
+    display:inline-block;
+    border:0;
+    padding:16px 32px;
+    border-radius:30px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+    transition: transform 0.2s ease;
+}
+
+.botao-whatsapp{
+    background:#fff;
+    color:#31552b;
+    animation: pulsar 2s infinite ease-in-out;
+}
+
+.botao-whatsapp:hover {
+    transform: scale(1.08);
+}
+
+
+/* =====================================================
+   MÚSICA E JIPE SAFARI ANIMADO
+===================================================== */
+
+.jipe-animado {
+    position: absolute;
+    bottom: 5px;
+    font-size: 32px;
+    left: 0;
+    animation: passarJipe 14s linear infinite;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.botao-musica{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:9500;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:0;
+    background:#31552b;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,.25);
+    transition: transform 0.2s ease;
+    animation: flutuar 3s infinite ease-in-out;
+}
+
+.botao-musica:hover {
+    transform: scale(1.15);
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+footer{
+    padding:35px 20px;
+    text-align:center;
+    background:#243f20;
+    color:white;
+    position: relative;
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media(max-width:700px){
+    .evento-grid{
+        grid-template-columns:1fr;
+    }
+
+    .galeria-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .hero{
+        padding:30px 15px;
+    }
+
+    .secao{
+        padding:55px 18px;
+    }
+
+    .bicho-flutuante {
+        font-size: 36px;
+    }
+
+    .lightbox-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+    .lightbox-prev { left: 5px; }
+    .lightbox-next { right: 5px; }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<!-- CHUVA CONTINUA DE FOLHAS SAFARI -->
+<div class="folhas-container">
+    <div class="folha-animada">🍃</div>
+    <div class="folha-animada">🌿</div>
+    <div class="folha-animada">🍃</div>
+    <div class="folha-animada">🌱</div>
+    <div class="folha-animada">🍃</div>
+</div>
+
+
+<!-- =====================================================
+     CARREGANDO
+===================================================== -->
+
+<div id="carregando">
+    <div class="spinner"></div>
+    <strong>Preparando a expedição do Dudu...</strong>
+</div>
+
+
+<!-- =====================================================
+     TELA INICIAL DE ABERTURA (1ª TELA)
+===================================================== -->
+
+<div id="telaAbertura">
+
+    <div class="selva-decoracao decoracao-1">🦁</div>
+    <div class="selva-decoracao decoracao-2">🦒</div>
+    <div class="selva-decoracao decoracao-3">🐘</div>
+    <div class="selva-decoracao decoracao-4">🐵</div>
+
+    <div class="abertura-box">
+        <h2 id="aberturaSubtitulo">Você recebeu um convite</h2>
+        <h1 id="aberturaNome">Dudu</h1>
+
+        <div class="foto-abertura">
+            <img id="fotoAbertura" alt="Foto de Capa">
+            <div id="semFotoAbertura" class="sem-foto">📷</div>
+        </div>
+
+        <p>Clique abaixo para abrir seu convite</p>
+        <button class="botao-abrir" onclick="iniciarConvite()">
+            ✉️ Abrir Convite
+        </button>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     ERRO
+===================================================== -->
+
+<div id="erro">
+    <div class="erro-box">
+        <h1>Ops! 😕</h1>
+        <p id="mensagemErro">Não foi possível carregar o convite.</p>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     CONVITE PRINCIPAL (2ª TELA)
+===================================================== -->
+
+<div id="convite">
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="bicho-flutuante bicho-1">🦁</div>
+        <div class="bicho-flutuante bicho-2">🦒</div>
+        <div class="bicho-flutuante bicho-3">🐘</div>
+        <div class="bicho-flutuante bicho-4">🦓</div>
+
+        <div class="hero-conteudo">
+
+            <div class="hero-pequeno">🌿 Embarque nesse Safari do 🌿</div>
+
+            <h1 id="nomeHero">Dudu</h1>
+
+            <h2 id="tituloHero">1 ANO</h2>
+
+            <p class="hero-texto" id="textoHero">
+                Venha comemorar esse momento muito especial conosco!
+            </p>
+
+            <div class="foto-principal">
+                <img id="fotoPrincipal" alt="Foto do Dudu">
+                <div id="semFoto" class="sem-foto">📷 Foto em breve</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MENSAGEM -->
+    <section class="secao secao-comemorar">
+        <div class="secao-conteudo">
+            <h2>🎂 Vamos comemorar!</h2>
+            <p id="textoAbertura">
+                Venha comemorar conosco o primeiro aniversário do Dudu!
+            </p>
+        </div>
+    </section>
+
+    <!-- EVENTO -->
+    <section class="secao evento">
+        <div class="secao-conteudo">
+            <h2>🦁 Anote na agenda</h2>
+
+            <div class="evento-grid">
+
+                <!-- ÍCONE DE CALENDÁRIO DE PAREDE -->
+                <div class="evento-card">
+                    <div class="evento-icon">🦁</div>
+                    <h3>Data</h3>
+                    <p id="dataEvento">13/12/2026</p>
+                </div>
+
+                <div class="evento-card">
+                    <div class="evento-icon">⏰</div>
+                    <h3>Horário</h3>
+                    <p id="horarioEvento">16:00</p>
+                </div>
+
+                <div class="evento-card">
+                    <div class="evento-icon">📍</div>
+                    <h3>Local</h3>
+                    <p id="enderecoEvento">Rua Avelino Camargos, 71</p>
+                    <p id="bairroEvento">Inconfidentes - Contagem/MG</p>
+                    <a id="btnMaps" class="botao-maps" href="#" target="_blank">
+                        🗺️ Ver no Google Maps
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA DE FOTOS -->
+    <section class="secao galeria">
+        <div class="secao-conteudo">
+            <h2>📸 Momentos do Dudu</h2>
+            <p>Acompanhe nosso pequeno aventureiro!</p>
+
+            <div class="galeria-grid" id="galeriaGrid"></div>
+        </div>
+    </section>
+
+<!-- CONFIRMAÇÃO DE PRESENÇA -->
+    <section class="secao confirmacao">
+        <div class="secao-conteudo">
+            <h2>💚 Esperamos você!</h2>
+            <p id="textoConfirmacao">
+                Sua presença vai deixar essa expedição ainda mais especial!
+            </p>
+            <a id="botaoWhatsApp" class="botao botao-whatsapp" href="dudu-convite.skylineweb.com.br" target="_blank">
+                💬 Confirmar presença
+            </a>
+        </div>
+
+        <div class="jipe-animado">🚙💨</div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>Com carinho, família do Dudu 💚</p>
+    </footer>
+
+</div>
+
+<!-- =====================================================
+     MODAL LIGHTBOX (ZOOM DAS FOTOS)
+===================================================== -->
+
+<div id="lightboxModal" class="lightbox-modal">
+    <button class="lightbox-fechar" onclick="fecharLightbox()">✖</button>
+    <button class="lightbox-nav lightbox-prev" onclick="mudarFotoLightbox(-1)">◀</button>
+    
+    <div class="lightbox-conteudo">
+        <img id="lightboxImg" class="lightbox-img" src="" alt="Foto expandida">
+        <div id="lightboxLegenda" class="lightbox-legenda"></div>
+    </div>
+
+    <button class="lightbox-nav lightbox-next" onclick="mudarFotoLightbox(1)">▶</button>
+</div>
+
+
+<!-- =====================================================
+     BOTÃO MÚSICA
+===================================================== -->
+
+<button id="botaoMusica" class="botao-musica" type="button" onclick="alternarMusica()" style="display:none;">
+    🎵
+</button>
+
+<audio id="musica" loop></audio>
+
+
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+/* =====================================================
+   CONFIGURAÇÃO
+===================================================== */
+
+const SUPABASE_URL = 'https://wtujaawfxmfqgvvwkjce.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_Tgu_ZkuqGcDdRxeisegrQQ_DU1-QKPx';
+
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let convite = null;
+let musicaTocando = false;
+let fotosGaleria = [];
+let indiceFotoAtual = 0;
+
+
+/* =====================================================
+   PEGAR SLUG DA URL
+===================================================== */
+
+function pegarSlug(){
+    const parametros = new URLSearchParams(window.location.search);
+    return (parametros.get("convite") || "dudu-1-ano");
+}
+
+
+/* =====================================================
+   FORMATAR DATA
+===================================================== */
+
+function formatarData(data){
+    if(!data) return "13/12/2026";
+    const partes = data.split("-");
+    if(partes.length !== 3) return data;
+    return (partes[2] + "/" + partes[1] + "/" + partes[0]);
+}
+
+
+/* =====================================================
+   CARREGAR CONVITE
+===================================================== */
+
+async function carregarConvite(){
+    const slug = pegarSlug();
+
+    try{
+        const resultado = await supabaseClient
+            .from("convites")
+            .select("*")
+            .eq("slug", slug)
+            .maybeSingle();
+
+        if(resultado.error) throw new Error(resultado.error.message);
+        if(!resultado.data) throw new Error("O convite '" + slug + "' não foi encontrado.");
+
+        convite = resultado.data;
+
+        preencherConvite(convite);
+        carregarGaleria(slug);
+        carregarFotoPrincipal();
+        carregarMusica();
+
+        document.getElementById("carregando").style.display = "none";
+        document.getElementById("telaAbertura").style.display = "flex";
+    }
+    catch(error){
+        console.error(error);
+        document.getElementById("carregando").style.display = "none";
+        document.getElementById("erro").style.display = "flex";
+        document.getElementById("mensagemErro").innerText = error.message;
+    }
+}
+
+
+/* =====================================================
+   AÇÃO DE ABRIR CONVITE
+===================================================== */
+
+async function iniciarConvite(){
+    document.getElementById("telaAbertura").style.display = "none";
+    document.getElementById("convite").style.display = "block";
+
+    const audio = document.getElementById("musica");
+    if(audio && audio.src){
+        try {
+            await audio.play();
+            musicaTocando = true;
+            document.getElementById("botaoMusica").innerText = "⏸️";
+        } catch(e) {
+            console.warn("Música aguardando interação:", e);
+        }
+    }
+}
+
+
+/* =====================================================
+   PREENCHER CONVITE
+===================================================== */
+
+function preencherConvite(data){
+    const nome = data.nome || "Dudu";
+
+    document.getElementById("aberturaNome").innerText = nome;
+    document.getElementById("nomeHero").innerText = nome;
+    document.getElementById("tituloHero").innerText = data.titulo || "1 ANO";
+    document.getElementById("textoHero").innerText = data.subtitulo || "Você está convidado para comemorar!";
+    document.getElementById("textoAbertura").innerText = data.texto_abertura || "Venha comemorar conosco!";
+
+    document.getElementById("dataEvento").innerText = data.data_evento ? formatarData(data.data_evento) : "13/12/2026";
+    document.getElementById("horarioEvento").innerText = data.horario_evento ? data.horario_evento.substring(0, 5) : "16:00";
+
+    const rua = data.endereco || "Rua Avelino Camargos, 71";
+    const bairroCidade = (data.bairro || "Inconfidentes") + (data.cidade ? " - " + data.cidade : " - Contagem/MG");
+
+    document.getElementById("enderecoEvento").innerText = rua;
+    document.getElementById("bairroEvento").innerText = bairroCidade;
+
+    const enderecoCompleto = encodeURIComponent(`${rua}, ${bairroCidade}`);
+    const btnMaps = document.getElementById("btnMaps");
+
+    if (rua || bairroCidade) {
+        btnMaps.href = `https://www.google.com/maps/search/?api=1&query=${enderecoCompleto}`;
+    } else {
+        btnMaps.style.display = "none";
+    }
+
+    document.getElementById("textoConfirmacao").innerText = data.texto_confirmacao || "Sua presença vai deixar essa expedição ainda mais especial!";
+
+    configurarWhatsApp(data);
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function configurarWhatsApp(data){
+    const telefone = data.whatsapp || data.telefone || "";
+    const mensagem = encodeURIComponent("Olá! Confirmo minha presença no aniversário do Dudu.");
+    const botao = document.getElementById("botaoWhatsApp");
+
+    if(telefone){
+        const numero = telefone.replace(/\D/g, "");
+        botao.href = "https://wa.me/" + numero + "?text=" + mensagem;
+    } else {
+        botao.href = "dudu-convite.skylineweb.com.br";
+    }
+}
+
+
+/* =====================================================
+   FOTO PRINCIPAL
+===================================================== */
+
+async function carregarFotoPrincipal(){
+    const imagemHero = document.getElementById("fotoPrincipal");
+    const semFotoHero = document.getElementById("semFoto");
+
+    const imagemAbertura = document.getElementById("fotoAbertura");
+    const semFotoAbertura = document.getElementById("semFotoAbertura");
+
+    const caminho = convite.foto_principal || convite.foto || convite.imagem || "";
+
+    if(!caminho){
+        imagemHero.style.display = "none";
+        semFotoHero.style.display = "block";
+
+        imagemAbertura.style.display = "none";
+        semFotoAbertura.style.display = "block";
+        return;
+    }
+
+    let urlFinal = "";
+    if(caminho.startsWith("http")){
+        urlFinal = caminho;
+    } else {
+        const resultado = supabaseClient.storage.from("imagens").getPublicUrl(caminho);
+        urlFinal = resultado.data.publicUrl;
+    }
+
+    imagemHero.src = urlFinal;
+    imagemAbertura.src = urlFinal;
+
+    imagemHero.onload = function(){
+        imagemHero.style.display = "block";
+        semFotoHero.style.display = "none";
+
+        imagemAbertura.style.display = "block";
+        semFotoAbertura.style.display = "none";
+    };
+
+    imagemHero.onerror = function(){
+        imagemHero.style.display = "none";
+        semFotoHero.style.display = "block";
+
+        imagemAbertura.style.display = "none";
+        semFotoAbertura.style.display = "block";
+    };
+}
+
+
+/* =====================================================
+   GALERIA DE FOTOS (EXIBE TODAS AS FOTOS SALVAS)
+===================================================== */
+
+/* =====================================================
+   GALERIA DE FOTOS (EXIBE NOME DO ARQUIVO COMO LEGENDA)
+===================================================== */
+
+async function carregarGaleria(slug){
+    const grid = document.getElementById("galeriaGrid");
+    grid.innerHTML = "";
+    fotosGaleria = [];
+
+    try{
+        let pastaAlvo = slug;
+        let resultado = await supabaseClient.storage.from("galeria").list(pastaAlvo, {
+            limit: 500,
+            sort: { column: "name", order: "asc" }
+        });
+
+        if(!resultado.data || resultado.data.length === 0){
+            pastaAlvo = "";
+            resultado = await supabaseClient.storage.from("galeria").list("", {
+                limit: 500,
+                sort: { column: "name", order: "asc" }
+            });
+        }
+
+        if(resultado.error){
+            console.warn("Erro ao buscar galeria:", resultado.error);
+            mostrarGaleriaVazia();
+            return;
+        }
+
+        const arquivos = resultado.data || [];
+        const imagens = arquivos.filter(arquivo => {
+            const nome = arquivo.name || "";
+            return (!nome.startsWith(".") && /\.(jpg|jpeg|png|webp|gif)$/i.test(nome));
+        });
+
+        if(imagens.length === 0){
+            mostrarGaleriaVazia();
+            return;
+        }
+
+        imagens.forEach((arquivo, index) => {
+            const caminhoCompleto = pastaAlvo ? `${pastaAlvo}/${arquivo.name}` : arquivo.name;
+            const url = supabaseClient.storage.from("galeria").getPublicUrl(caminhoCompleto).data.publicUrl;
+
+            // Extrai o nome do arquivo sem a extensão
+            let nomeSemExtensao = arquivo.name.substring(0, arquivo.name.lastIndexOf('.')) || arquivo.name;
+
+            // Formata a legenda (substitui traços/hífens por espaços e limpa a string)
+            let textoLegenda = decodeURIComponent(nomeSemExtensao)
+                .replace(/[-_]/g, ' ')
+                .trim();
+
+            fotosGaleria.push({ url: url, legenda: textoLegenda });
+
+            const itemIndex = fotosGaleria.length - 1;
+
+            const div = document.createElement("div");
+            div.className = "galeria-item";
+            div.onclick = function() { abrirLightbox(itemIndex); };
+
+            const img = document.createElement("img");
+            img.src = url;
+            img.alt = `Dudu - ${textoLegenda}`;
+            img.onerror = function(){ div.remove(); };
+
+            const legenda = document.createElement("div");
+            legenda.className = "legenda-mes";
+            legenda.innerText = textoLegenda;
+
+            div.appendChild(img);
+            div.appendChild(legenda);
+            grid.appendChild(div);
+        });
+    }
+    catch(error){
+        console.warn(error);
+        mostrarGaleriaVazia();
+    }
+}
+
+
+/* =====================================================
+   FUNÇÕES DO LIGHTBOX
+===================================================== */
+
+function abrirLightbox(index) {
+    if (fotosGaleria.length === 0) return;
+    indiceFotoAtual = index;
+    atualizarLightbox();
+    document.getElementById("lightboxModal").style.display = "flex";
+}
+
+function fecharLightbox() {
+    document.getElementById("lightboxModal").style.display = "none";
+}
+
+function mudarFotoLightbox(direcao) {
+    indiceFotoAtual += direcao;
+    if (indiceFotoAtual < 0) {
+        indiceFotoAtual = fotosGaleria.length - 1;
+    } else if (indiceFotoAtual >= fotosGaleria.length) {
+        indiceFotoAtual = 0;
+    }
+    atualizarLightbox();
+}
+
+function atualizarLightbox() {
+    const foto = fotosGaleria[indiceFotoAtual];
+    document.getElementById("lightboxImg").src = foto.url;
+    document.getElementById("lightboxLegenda").innerText = foto.legenda;
+}
+
+/* Suporte às teclas do teclado (Esc, setas) */
+document.addEventListener("keydown", function(event) {
+    const modal = document.getElementById("lightboxModal");
+    if (modal.style.display === "flex") {
+        if (event.key === "Escape") fecharLightbox();
+        if (event.key === "ArrowLeft") mudarFotoLightbox(-1);
+        if (event.key === "ArrowRight") mudarFotoLightbox(1);
+    }
+});
+
+
+/* =====================================================
+   GALERIA VAZIA
+===================================================== */
+
+function mostrarGaleriaVazia(){
+    const grid = document.getElementById("galeriaGrid");
+    grid.innerHTML = `
+        <div class="galeria-vazia">
+            📸 Em breve teremos as fotos por aqui!
+        </div>
+    `;
+}
+
+
+/* =====================================================
+   CARREGAR MÚSICA
+===================================================== */
+
+async function carregarMusica(){
+    const audio = document.getElementById("musica");
+    let urlMusica = "";
+
+    try {
+        const slug = pegarSlug();
+
+        let resultado = await supabaseClient.storage.from("musicas").list(slug, { limit: 100 });
+
+        if (resultado.data && resultado.data.length > 0) {
+            let arquivoAudio = resultado.data.find(item => /\.(mp3|wav|ogg|m4a)$/i.test(item.name));
+
+            if (arquivoAudio) {
+                urlMusica = supabaseClient.storage.from("musicas").getPublicUrl(`${slug}/${arquivoAudio.name}`).data.publicUrl;
+            } else {
+                const subpasta = resultado.data.find(item => item.id === null || !item.metadata);
+                if (subpasta) {
+                    let subResultado = await supabaseClient.storage.from("musicas").list(`${slug}/${subpasta.name}`, { limit: 50 });
+                    if (subResultado.data) {
+                        arquivoAudio = subResultado.data.find(item => /\.(mp3|wav|ogg|m4a)$/i.test(item.name));
+                        if (arquivoAudio) {
+                            urlMusica = supabaseClient.storage.from("musicas").getPublicUrl(`${slug}/${subpasta.name}/${arquivoAudio.name}`).data.publicUrl;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!urlMusica) {
+            let resultadoRaiz = await supabaseClient.storage.from("musicas").list("", { limit: 50 });
+            if (resultadoRaiz.data) {
+                let arquivoAudio = resultadoRaiz.data.find(item => /\.(mp3|wav|ogg|m4a)$/i.test(item.name));
+                if (arquivoAudio) {
+                    urlMusica = supabaseClient.storage.from("musicas").getPublicUrl(arquivoAudio.name).data.publicUrl;
+                }
+            }
+        }
+
+        if (urlMusica) {
+            audio.src = urlMusica;
+            audio.preload = "auto";
+            audio.load();
+            document.getElementById("botaoMusica").style.display = "block";
+        }
+
+    } catch (error) {
+        console.error("Erro ao carregar música:", error);
+    }
+}
+
+
+/* =====================================================
+   CONTROLE DA MÚSICA
+===================================================== */
+
+async function alternarMusica(){
+    const audio = document.getElementById("musica");
+    const botao = document.getElementById("botaoMusica");
+
+    try{
+        if(musicaTocando){
+            audio.pause();
+            musicaTocando = false;
+            botao.innerText = "🎵";
+        } else {
+            await audio.play();
+            musicaTocando = true;
+            botao.innerText = "⏸️";
+        }
+    }
+    catch(error){
+        console.warn(error);
+    }
+}
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+carregarConvite();
+
+</script>
+
+</body>
+
+</html>
