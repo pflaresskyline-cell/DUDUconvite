@@ -1122,12 +1122,9 @@ function preencherConvite(data){
 ===================================================== */
 
 function configurarWhatsApp(data){
-    // Endereço correto da página de confirmação de presença.
-    // Usar URL absoluta evita que o navegador acrescente o domínio atual.
+    // Mantém sempre o endereço absoluto correto para confirmar presença.
     const botao = document.getElementById("botaoWhatsApp");
     botao.href = "https://dudu-convite.skylineweb.com.br/";
-    botao.target = "_blank";
-    botao.rel = "noopener noreferrer";
 }
 
 
