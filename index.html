@@ -946,6 +946,11 @@ footer{
     <!-- RODAPÉ -->
     <footer>
         <p>Com carinho, família do Dudu 💚</p>
+        <button id="btnAdminConfirmacao" type="button"
+            onclick="gerenciarBotaoConfirmacao()"
+            style="margin-top:12px;background:transparent;border:0;color:rgba(255,255,255,.55);font-size:11px;cursor:pointer;">
+            ⚙️ Administração
+        </button>
     </footer>
 
 </div>
@@ -1125,6 +1130,78 @@ function configurarWhatsApp(data){
     // Mantém sempre o endereço absoluto correto para confirmar presença.
     const botao = document.getElementById("botaoWhatsApp");
     botao.href = "https://dudu-convite.skylineweb.com.br/";
+    aplicarVisibilidadeBotaoConfirmacao();
+}
+
+
+/* =====================================================
+   ADMINISTRAÇÃO DA VISIBILIDADE DO BOTÃO DE CONFIRMAÇÃO
+===================================================== */
+
+const SENHA_ADMIN_CONFIRMacao = "102104";
+const CHAVE_BOTAO_DESATIVADO_CONFIRMacao = "dudu_botao_confirmacao_desativado";
+
+function aplicarVisibilidadeBotaoConfirmacao(){
+    const botao = document.getElementById("botaoWhatsApp");
+    if(!botao) return;
+
+    const desativado = localStorage.getItem(CHAVE_BOTAO_DESATIVADO_CONFIRMacao) === "true";
+    botao.style.display = "inline-block";
+
+    if(desativado){
+        botao.textContent = "⛔ PRAZO DE CONFIRMAÇÃO ACABOU";
+        botao.href = "javascript:void(0)";
+        botao.removeAttribute("target");
+        botao.style.background = "#d40000";
+        botao.style.color = "#ffffff";
+        botao.style.border = "3px solid #ffb3b3";
+        botao.style.boxShadow = "0 0 18px rgba(212,0,0,.75)";
+        botao.style.animation = "pulsar 1s infinite ease-in-out";
+        botao.style.cursor = "not-allowed";
+        botao.setAttribute("aria-disabled", "true");
+        botao.onclick = function(event){
+            event.preventDefault();
+            alert("PRAZO DE CONFIRMAÇÃO ACABOU.");
+        };
+    } else {
+        botao.textContent = "💬 Confirmar presença";
+        botao.href = "https://dudu-convite.skylineweb.com.br/";
+        botao.setAttribute("target", "_blank");
+        botao.style.background = "";
+        botao.style.color = "";
+        botao.style.border = "";
+        botao.style.boxShadow = "";
+        botao.style.animation = "";
+        botao.style.cursor = "pointer";
+        botao.removeAttribute("aria-disabled");
+        botao.onclick = null;
+    }
+}
+
+function gerenciarBotaoConfirmacao(){
+    const senha = prompt("Digite a senha de administrador:");
+    if(senha === null) return;
+
+    if(senha !== SENHA_ADMIN_CONFIRMacao){
+        alert("Senha incorreta!");
+        return;
+    }
+
+    const desativadoAgora = localStorage.getItem(CHAVE_BOTAO_DESATIVADO_CONFIRMacao) === "true";
+    const acao = desativadoAgora ? "REATIVAR" : "DESATIVAR";
+    const confirmar = confirm(
+        desativadoAgora
+            ? "Deseja reativar o botão Confirmar presença?"
+            : "Deseja desativar o botão Confirmar presença e exibir o aviso em vermelho?"
+    );
+
+    if(!confirmar) return;
+
+    localStorage.setItem(CHAVE_BOTAO_DESATIVADO_CONFIRMacao, desativadoAgora ? "false" : "true");
+    aplicarVisibilidadeBotaoConfirmacao();
+    alert(desativadoAgora
+        ? "Botão Confirmar presença reativado."
+        : "Botão Confirmar presença desativado. O aviso de prazo encerrado está sendo exibido.");
 }
 
 
